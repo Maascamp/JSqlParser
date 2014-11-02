@@ -106,4 +106,9 @@ public abstract class ConnectExpressionsVisitor implements SelectVisitor, Select
 	public void visit(SelectExpressionItem selectExpressionItem) {
 		itemsExpr.add(selectExpressionItem);
 	}
+
+    @Override
+    public void visit(FunctionSelectItem functionItem) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 }

@@ -89,6 +89,28 @@ public class AddAliasesVisitor implements SelectVisitor, SelectItemVisitor {
 		}
 	}
 
+    @Override
+    public void visit(FunctionSelectItem functionSelectItem) {
+
+        if (firstRun) {
+            if (functionSelectItem.getAlias() != null) {
+                aliases.add(functionSelectItem.getAlias().getName().toUpperCase());
+            }
+        } else {
+            if (functionSelectItem.getAlias() == null) {
+
+                while (true) {
+                    String alias = getNextAlias().toUpperCase();
+                    if (!aliases.contains(alias)) {
+                        aliases.add(alias);
+                        functionSelectItem.setAlias(new Alias(alias));
+                        break;
+                    }
+                }
+            }
+        }
+    }
+
 	/**
 	 * Calculate next alias name to use.
 	 *

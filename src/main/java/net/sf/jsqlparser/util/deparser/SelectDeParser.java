@@ -179,6 +179,16 @@ public class SelectDeParser implements SelectVisitor, OrderByVisitor, SelectItem
     }
 
     @Override
+    public void visit(FunctionSelectItem functionSelectItem) {
+        buffer.append(functionSelectItem.getToken()).append('(');
+        functionSelectItem.getExpression().accept(expressionVisitor);
+        buffer.append(')');
+        if (functionSelectItem.getAlias() != null) {
+            buffer.append(functionSelectItem.getAlias().toString());
+        }
+    }
+
+    @Override
     public void visit(SubSelect subSelect) {
         buffer.append("(");
         subSelect.getSelectBody().accept(this);

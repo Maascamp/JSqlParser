@@ -81,8 +81,14 @@
 				<version>2.6</version>
 				<executions>
 					<execution>
-						<id>javacc</id>
-						<phase>generate-sources</phase>
+                        <id>javacc</id>
+                        <phase>generate-sources</phase>
+                        <!--
+                        <configuration>
+                            <debugParser>true</debugParser>
+                            <debugLookAhead>true</debugLookAhead>
+                        </configuration>
+                        -->
 						<goals>
 							<goal>javacc</goal>
 						</goals>

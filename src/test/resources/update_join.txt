@@ -1,0 +1,7 @@
+UPDATE TABLE_A a JOIN TABLE_B b ON a.join_col = b.join_col AND a.column_a = b.column_b SET a.column_c = a.column_c + 1
+
+UPDATE mytab m JOIN (SELECT m.abc, m.def, o.ghi FROM mytab mt LEFT JOIN othertab o on (m.abc = o.abc and m.def = o.def) WHERE m.abc = 1 group by m.abc, m.def) as n ON (n.abc = m.abc and n.def = m.def) SET m.ghi = n.ghi;
+
+UPDATE user_conversation_tags ut    JOIN       (SELECT ut.user_id, ut.tag_id, count(c.is_visible AND NOT c.is_trash AND NOT c.is_spam) as convo_count        FROM user_conversation_tags ut            LEFT JOIN conversation_tags ct on (ut.user_id = ct.user_id and ut.tag_id = ct.tag_id)            LEFT JOIN conversations c on (c.user_id = ct.user_id and c.conversation_id = ct.conversation_id                and (c.is_visible = true AND c.is_trash = false AND c.is_spam = false))        WHERE ut.user_id = 22371692 group by ut.user_id, ut.tag_id) as m    ON (m.user_id = ut.user_id and m.tag_id = ut.tag_id) SET ut.convo_count = m.convo_count;
+
+Update `mytab` set jk=das, d=kasd+asd/d+3 where KL>= ds OR (k not in (SELECT K from KS));

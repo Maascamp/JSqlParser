@@ -33,8 +33,9 @@ public class CCJSqlParserManager implements JSqlParser {
 
 	@Override
 	public Statement parse(Reader statementReader) throws JSQLParserException {
-		CCJSqlParser parser = new CCJSqlParser(statementReader);
-		try {
+        CCJMySqlParser parser = new CCJMySqlParser(statementReader);
+		//  CCJSqlParser parser = new CCJSqlParser(statementReader);
+        try {
 			return parser.Statement();
 		} catch (Exception ex) {
 			throw new JSQLParserException(ex);
