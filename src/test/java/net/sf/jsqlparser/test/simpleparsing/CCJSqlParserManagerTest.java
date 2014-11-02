@@ -19,8 +19,7 @@ public class CCJSqlParserManagerTest extends TestCase {
 
 	public void testParse() throws Exception {
 		CCJSqlParserManager parserManager = new CCJSqlParserManager();
-		//BufferedReader in = new BufferedReader(new InputStreamReader(CreateTableTest.class.getResourceAsStream("/simple_parsing.txt")));
-        BufferedReader in = new BufferedReader(new InputStreamReader(CreateTableTest.class.getResourceAsStream("/update_join.txt")));
+		BufferedReader in = new BufferedReader(new InputStreamReader(CreateTableTest.class.getResourceAsStream("/simple_parsing.txt")));
 
 		String statement = "";
 		while (true) {

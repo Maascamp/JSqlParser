@@ -1,3 +1,5 @@
+insert into tabName3 VALUES ('isn\'t', ?)
+
 UPDATE TABLE_A a JOIN TABLE_B b ON a.join_col = b.join_col AND a.column_a = b.column_b SET a.column_c = a.column_c + 1
 
 UPDATE mytab m JOIN (SELECT m.abc, m.def, o.ghi FROM mytab mt LEFT JOIN othertab o on (m.abc = o.abc and m.def = o.def) WHERE m.abc = 1 group by m.abc, m.def) as n ON (n.abc = m.abc and n.def = m.def) SET m.ghi = n.ghi;
